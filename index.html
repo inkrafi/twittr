@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <title>Twittr</title>
+</head>
+
+<body class="max-w-7xl mx-auto bg-primary text-white">
+
+    <section class="px-4 md:px-[75px] min-w-fit flex flex-col md:flex-row justify-between">
+        <!-- Sidebar - hidden on mobile -->
+        <div class="hidden md:block md:min-w-[230px]">
+            <a href="/">
+                <h2 class="font-bold text-[28px] py-[30px]">twittr.</h2>
+            </a>
+            <div class="flex flex-col gap-[30px]">
+                <a href="index.html" class="flex gap-4">
+                    <img src="assets/home-hashtag.svg" alt="" class="w-7 h7">
+                    <p class="text-xl active-sidebar">Home</p>
+                </a>
+
+                <a href="#" id="btnVisitMyProfile" class="flex gap-4">
+                    <img src="assets/profile-circle.svg" alt="" class="w-7 h7">
+                    <p class="text-xl">Profile</p>
+                </a>
+
+                <!-- Auth links - akan diubah oleh JavaScript -->
+                <div id="authLinks">
+                    <!-- Konten akan diisi oleh JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Bar -->
+        <!-- Mobile Navigation - visible only on small screens -->
+        <div class="md:hidden fixed bottom-0 left-0 right-0 bg-primary border-t border-line z-40 flex justify-around py-3">
+            <a href="index.html" class="flex flex-col items-center">
+                <img src="assets/home-hashtag.svg" alt="" class="w-6 h-6">
+                <span class="text-xs mt-1">Home</span>
+            </a>
+            <a href="#" id="mobileProfile" class="flex flex-col items-center">
+                <img src="assets/profile-circle.svg" alt="" class="w-6 h-6">
+                <span class="text-xs mt-1">Profile</span>
+            </a>
+            <!-- Mobile auth link - akan diubah oleh JavaScript -->
+            <a href="#" id="mobileAuthLink" class="flex flex-col items-center">
+                <!-- Konten akan diisi oleh JavaScript -->
+            </a>
+        </div>
+
+        <!-- <a href="register.html" class="flex flex-col items-center">
+            <img src="assets/group.svg" alt="" class="w-6 h-6">
+            <span class="text-xs mt-1">Sign Up</span>
+        </div> -->
+
+        <!-- Mobile Header -->
+        <div class="md:hidden flex justify-between items-center p-4 border-b border-line">
+            <h2 class="font-bold text-xl">twittr.</h2>
+            <a href="register.html" class="btn-blue-small py-1 px-3 rounded-full text-sm">Sign Up</a>
+        </div>
+
+        <!-- Feeds -->
+        <div class="h-fit border-l-2 border-r-2 border-line">
+            <div class="flex justify-center gap-[150px] pt-[20px] border-b-2 border-line">
+                <a href="#" class="px-2.5 pb-3.5 text-base font-bold border-b-4 border-link">For You</a>
+                <!-- <a href="#" class="px-2.5 pb-3.5 text-base font-bold text-username">Following</a> -->
+            </div>
+
+            <div class="bg-primary pt-[20px] pb-[16px] px-4 border-b-2 border-line">
+                <div id="instantFeedback"
+                    class="mb-3 instant-feedback flex flex-row p-3 rounded-xl text-base bg-red-500 text-white font-bold">
+                </div>
+                <form id="twittForm">
+                    <div class="flex items-start justify-start">
+                        <img src="assets/user.png" id="ownerPhoto"
+                            class="object-cover w-[46px] h-[46px] rounded-full mr-3" />
+                        <textarea placeholder="What is happening ?!" id="twittContent"
+                            class="flex-grow h-[100px] py-3 text-white bg-primary text-base placeholder:text-lg focus:outline-none focus:ring-0 focus:font-semibold resize-none focus:border-transparent overflow-hidden"></textarea>
+                    </div>
+                    <div class="w-[90%] flex justify-between items-center ml-[54px] mr-4 pt-[17px]">
+                        <div class="flex justify-center items-center gap-2.5">
+                            <div data-feeling="🤩 Happy"
+                                class="item-feeling cursor-pointer border-line flex justify-center items-center rounded-full px-3 py-1.5 border-2 gap-1.5">
+                                <p>🤩</p>
+                                <p class="text-sm font-semibold">Happy</p>
+                            </div>
+                            <div data-feeling="😥 Sad"
+                                class="item-feeling cursor-pointer flex justify-center items-center rounded-full px-3 py-1.5 border-line border-2 gap-1.5">
+                                <p>😥</p>
+                                <p class="text-sm font-semibold">Sad</p>
+                            </div>
+                            <div data-feeling="🤯 Shocked"
+                                class="item-feeling cursor-pointer flex justify-center items-center rounded-full px-3 py-1.5 border-line border-2 gap-1.5">
+                                <p>🤯</p>
+                                <p class="text-sm font-semibold">Shocked</p>
+                            </div>
+                            <div data-feeling="😖 Worry"
+                                class="item-feeling cursor-pointer flex justify-center items-center rounded-full px-3 py-1.5 border-line border-2 gap-1.5">
+                                <p>🤯</p>
+                                <p class="text-sm font-semibold">Worry</p>
+                            </div>
+                        </div>
+                        <button>
+                            <span class="btn-blue cursor-pointer font-bold">Post</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="twittsWrapper">
+
+
+                <div class="bg-primary p-4 border-b-2 border-line">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-start">
+                            <img src="assets/user.png" id="ownerPhoto" alt="search" srcset=""
+                                class="object-cover w-[46px] h-[46px] rounded-full">
+                            <div class="pl-2">
+                                <div class="flex gap-1">
+                                    <p class="text-base font-bold inline-block">Rafi Ferdian <img src="assets/verify.png"
+                                            alt="" srcset="" class="inline w-5 h-5 rounded-full"> </p>
+                                </div>
+                                <p class="text-username text-sm">@rafiferdian • 1 Jan 2025</p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex justify-center items-center rounded-full px-3 py-1.5 border-line border-2 gap-1.5">
+                            <p class="text-sm font-semibold">🤩 Happy</p>
+                        </div>
+                    </div>
+
+                    <p class="pl-[55px] py-2.5 leading-7 text-base">
+                        Welcome, please Sign Up/Login
+                    </p>
+
+                    <div class="flex justify-between items-center pl-[55px] w-[484px]">
+                        <div class="flex justify-center items-center gap-2.5 pr-[250px]">
+                            <a href="#" class="cursor flex justify-start items-center w-[93px] gap-1.5">
+                                <img class="like-icon" src="assets/heart.svg" alt="heart">
+                                <p class="text-sm font-normal text-like">0 Likes
+                                </p>
+                            </a>
+                            <a href="#" class="cursor flex justify-start items-center w-[93px] gap-1.5">
+                                <img src="assets/trash.svg" alt="heart">
+                                <p class="text-sm font-normal text-username">Delete</p>
+                            </a>
+                            <a href="#" class="flex justify-start items-center w-[93px] gap-1.5">
+                                <img src="assets/warning-2.svg">
+                                <p class="text-sm font-normal text-username">Report</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- Browse -->
+        <div class="w-[320px] hidden md:block"> <!-- Tambahkan hidden md:block untuk menyembunyikan di mobile -->
+            <div class="pl-[30px] flex flex-col gap-5 py-[30px]">
+                <!-- <div class="flex items-center justify-start rounded-full bg-secondary">
+                    <img src="assets/search-normal-dim.svg" alt="search" srcset="" class="w-26 h-26 ml-4 mr-3">
+                    <input type="text" placeholder="Search" id="search"
+                        class="w-[484px] h-[48px] py-3 text-white bg-secondary text-base placeholder:text-base placeholder:text-paragraph rounded-full focus:outline-none focus:ring-0 focus:font-semibold" />
+                </div> -->
+
+                <div class="flex flex-col rounded-[16px] bg-secondary">
+                    <div class="flex flex-col py-3.5">
+                        <h2 class="font-bold text-lg pb-[7px] px-3.5">Indonesia trends</h2>
+
+                        <a href="#" class="flex justify-between items-center hover:bg-gray-800">
+                            <div class="flex px-3.5 py-[7px]">
+                                <div class="">
+                                    <p class="text-username text-sm">1 • Trending</p>
+                                    <p class="text-base font-bold">belajar javascript</p>
+                                    <p class="text-username text-sm">14K posts</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="flex justify-between items-cente hover:bg-gray-800">
+                            <div class="flex px-3.5 py-[7px]">
+                                <div class="">
+                                    <p class="text-username text-sm">2 • Trending</p>
+                                    <p class="text-base font-bold">kerja remote itu asik</p>
+                                    <p class="text-username text-sm">14K posts</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="flex justify-between items-center hover:bg-gray-800">
+                            <div class="flex px-3.5 py-[7px]">
+                                <div class="">
+                                    <p class="text-username text-sm">3 • Trending</p>
+                                    <p class="text-base font-bold">indonesia emas 2045</p>
+                                    <p class="text-username text-sm">14K posts</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="flex justify-between items-center hover:bg-gray-800">
+                            <div class="flex px-3.5 py-[7px]">
+                                <div class="">
+                                    <p class="text-username text-sm">4 • Trending</p>
+                                    <p class="text-base font-bold">mengapa coding sulit</p>
+                                    <p class="text-username text-sm">14K posts</p>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- <a href="#" class="flex justify-between items-center hover:bg-gray-800">
+                            <div class="flex px-3.5 py-[7px]">
+                                <div class="">
+                                    <p class="text-username text-sm">5 • Trending</p>
+                                    <p class="text-base font-bold">diskon bwa besar banget</p>
+                                    <p class="text-username text-sm">14K posts</p>
+                                </div>
+                            </div>
+                        </a> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+    <script src="assets/js/Models/User.js"></script>
+    <script src="assets/js/Models/Twitt.js"></script>
+    <script src="assets/js/addTwitts.js"></script>
+    <script src="assets/js/manageTwitts.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#010003',
+                        secondary: '#121316',
+                        paragraph: '#626262',
+                        btn_blue: '#1880E8',
+                        username: '#5E6368',
+                        link: '#1880E8',
+                        line: '#1E1E1E',
+                        like: '#F91880'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+</body>
+
+
+
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const usernameLoggedIn = localStorage.getItem('usernameLoggedIn');
+        const authLinks = document.getElementById('authLinks');
+        const mobileAuthLink = document.getElementById('mobileAuthLink');
+        
+        if (usernameLoggedIn) {
+            // User sudah login, tampilkan Sign Out
+            authLinks.innerHTML = `
+                <a href="login.html" class="flex gap-4" id="signOutLink">
+                    <img src="assets/group.svg" alt="" class="w-7 h7">
+                    <p class="text-xl">Sign Out</p>
+                </a>
+            `;
+            
+            mobileAuthLink.innerHTML = `
+                <img src="assets/group.svg" alt="" class="w-6 h-6">
+                <span class="text-xs mt-1">Sign Out</span>
+            `;
+            mobileAuthLink.href = "login.html";
+            
+            // Tambahkan event listener untuk menghapus data login saat Sign Out
+            document.getElementById('signOutLink').addEventListener('click', function(e) {
+                localStorage.removeItem('usernameLoggedIn');
+            });
+            
+            mobileAuthLink.addEventListener('click', function(e) {
+                localStorage.removeItem('usernameLoggedIn');
+            });
+        } else {
+            // User belum login, tampilkan Sign Up
+            authLinks.innerHTML = `
+                <a href="login.html" class="flex gap-4">
+                    <img src="assets/group.svg" alt="" class="w-7 h7">
+                    <p class="text-xl">Sign In</p>
+                </a>
+                <a href="register.html" class="w-full md:w-[200px]">
+                    <span class="btn-blue cursor-pointer text-base font-bold">Sign Up</span>
+                </a>
+            `;
+            
+            mobileAuthLink.innerHTML = `
+                <img src="assets/group.svg" alt="" class="w-6 h-6">
+                <span class="text-xs mt-1">Sign Up</span>
+            `;
+            mobileAuthLink.href = "register.html";
+        }
+    });
+</script>

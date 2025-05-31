@@ -1,0 +1,143 @@
+@import url('https://cdn.tailwindcss.com');
+@import 'tailwind.config.js';
+
+/* Gaya kustom atau utility classes tambahan */
+@layer utilities {
+
+    *{
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .btn-white-small {
+        background: #FFFFFF;
+        color: #010003;
+        font-weight: bold;
+        font-size: 14px;
+        padding: 6px 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        transition: 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0px 0px 10px 5px rgba(1, 0, 3, 0.75);
+    }
+
+    .btn-white-small:hover {
+        background: #1880E8;
+        color: #ffffff;
+        margin-left: 1px;
+        box-shadow: 0px 12px 12px 0px rgba(24, 128, 232, 0.4);
+    }
+
+    .active-sidebar{
+        font-weight: bold;
+    }
+
+    .active-feed{
+        border-bottom: 2px solid #1880E8;
+    }
+
+    textarea {
+        border: none;
+        overflow: auto;
+        outline: none;
+    
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    
+        resize: none; /*remove the resize handle on the bottom right*/
+    }
+
+    .btn-blue {
+        background: #1880E8;
+        color: #ffffff;
+        padding: 12px 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        transition: 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-blue:hover {
+        margin-left: 1px;
+        box-shadow: 0px 8px 8px 0px rgba(24, 128, 232, 0.4);
+    }
+}
+
+
+/* Responsif CSS untuk Twittr Home */
+@media (max-width: 768px) {
+    /* Layout utama */
+    section {
+        padding: 0 !important;
+    }
+
+    /* Feeds container */
+    .border-l-2.border-r-2 {
+        border-left: none !important;
+        border-right: none !important;
+        width: 100% !important;
+    }
+
+    /* Tweet form */
+    #twittForm {
+        padding: 10px !important;
+    }
+
+    /* Feeling buttons container */
+    #twittForm .flex.justify-between {
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+    }
+
+    /* Adjust textarea */
+    #twittContent {
+        font-size: 14px !important;
+    }
+
+    /* Adjust buttons */
+    .btn-blue {
+        padding: 8px 20px !important;
+        font-size: 14px !important;
+    }
+
+    /* Twitt items */
+    .pl-[55px] {
+        padding-left: 40px !important;
+    }
+
+    /* Twitt action buttons */
+    .w-[484px] {
+        width: 100% !important;
+    }
+
+    .pr-[250px] {
+        padding-right: 0 !important;
+    }
+
+    /* Add padding bottom for mobile navigation */
+    body {
+        padding-bottom: 60px !important;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  section {
+    padding: 0 20px !important;
+  }
+  
+  div:has(> a[href="/"]) {
+    min-width: 180px !important;
+  }
+  
+  div.w-\[320px\] {
+    width: 250px !important;
+  }
+  
+  div:has(> div.flex:first-child) {
+    flex: 1 !important;
+  }
+}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <title>Twittr Profile</title>
+</head>
+
+<body class="bg-primary text-white">
+
+    <section class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between px-4 md:px-[75px]">
+
+        <!-- Sidebar - hidden on mobile, visible on md screens and up -->
+        <div class="hidden md:block md:min-w-[230px] md:sticky md:top-0 md:h-screen">
+            <a href="/">
+                <h2 class="font-bold text-[28px] py-[30px]">twittr.</h2>
+            </a>
+            <div class="flex flex-col gap-[30px]">
+                <a href="index.html" class="flex gap-4">
+                    <img src="assets/home-hashtag.svg" alt="" class="w-7 h7">
+                    <p class="text-xl">Home</p>
+                </a>
+
+                <a href="#" id="btnVisitMyProfile" class="flex gap-4">
+                    <img src="assets/profile-circle.svg" alt="" class="w-7 h7">
+                    <p class="text-xl">Profile</p>
+                </a>
+
+                <a href="login.html" class="flex gap-4">
+                    <img src="assets/group.svg" alt="" class="w-7 h7">
+                    <p class="text-xl">Sign Out</p>
+                </a>
+
+                <a href="index.html" class="w-full md:w-[200px]">
+                    <span class="btn-blue cursor-pointer text-base font-bold">New Tweet</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation - visible only on small screens -->
+        <div class="md:hidden fixed bottom-0 left-0 right-0 bg-primary border-t border-line z-40 flex justify-around py-3">
+            <a href="index.html" class="flex flex-col items-center">
+                <img src="assets/home-hashtag.svg" alt="" class="w-6 h-6">
+                <span class="text-xs mt-1">Home</span>
+            </a>
+            <a href="#" id="mobileProfile" class="flex flex-col items-center">
+                <img src="assets/profile-circle.svg" alt="" class="w-6 h-6">
+                <span class="text-xs mt-1">Profile</span>
+            </a>
+            <a href="login.html" class="flex flex-col items-center">
+                <img src="assets/group.svg" alt="" class="w-6 h-6">
+                <span class="text-xs mt-1">Sign Out</span>
+            </a>
+        </div>
+
+        <!-- Feeds -->
+        <div class="w-full md:w-auto md:flex-grow md:max-w-[600px] h-fit border-x-0 md:border-x-2 border-line">
+            <!-- Mobile Header -->
+            <div class="md:hidden flex justify-between items-center p-4 border-b border-line">
+                <h2 class="font-bold text-xl">twittr.</h2>
+                <a href="index.html" class="btn-blue-small py-1 px-3 rounded-full text-sm">Tweet</a>
+            </div>
+            
+            <div class="relative border-b-2 border-line">
+                <div class="bg-cover bg-center w-full h-[150px] md:h-[200px]" style="background-image: url(assets/cover.png)"></div>
+
+                <div class="absolute pl-4 md:pl-5 top-[100px] md:top-[140px]">
+                    <img src="assets/user.png" id="ownerPhoto" alt="" srcset=""
+                        class="object-cover w-[100px] h-[100px] md:w-[120px] md:h-[120px] rounded-full border-4 border-black">
+                </div>
+
+                <div class="px-4 md:px-5">
+                    <div class="flex flex-col justify-start gap-3.5 pt-[60px] md:pt-[70px]">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                            <div class="mb-2 md:mb-0">
+                                <h3 id="userProfileName" class="text-xl md:text-[22px] font-bold">BuildWithAngga<img
+                                        src="assets/verify.png" alt="" srcset="" class="inline w-5 md:w-6 h-5 md:h-6 rounded-full">
+                                </h3>
+                                <p id="userProfileUsername" class="text-username text-sm">@buildwithangga</p>
+                            </div>
+
+                            <div class="flex gap-2 mt-2 md:mt-0">
+                                <a href="#" id="editProfileBtn">
+                                    <span class="btn-white-small cursor-pointer">Edit Profile</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <p id="userProfileBio" class="leading-[26px] text-sm">Twittr</p>
+
+                        <div class="flex gap-5">
+                            <div class="flex gap-1.5">
+                                <img src="assets/location.svg" alt="" srcset="" class="w-[20px] h-[20px]">
+                                <p class="text-base text-username">Indonesia</p>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between overflow-x-auto px-[10px] no-scrollbar">
+                            <a href="#" class="px-2.5 pb-3.5 text-base font-bold border-b-4 border-link whitespace-nowrap">Posts</a>
+                            <!-- <a href="#" class="px-2.5 pb-3.5 text-base text-username whitespace-nowrap">Replies</a>
+                            <a href="#" class="px-2.5 pb-3.5 text-base text-username whitespace-nowrap">Highlights</a>
+                            <a href="#" class="px-2.5 pb-3.5 text-base text-username whitespace-nowrap">Media</a>
+                            <a href="#" class="px-2.5 pb-3.5 text-base text-username whitespace-nowrap">Likes</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="twittsWrapper" class="pb-16 md:pb-0">
+                <!-- Twitt content will be loaded here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Browse - hidden on mobile -->
+        <div class="hidden md:block w-[320px]">
+            <div class="pl-[30px] flex flex-col gap-5 py-[30px]">
+                <div class="flex items-center justify-start rounded-full bg-secondary">
+                    <img src="assets/search-normal-dim.svg" alt="search" srcset="" class="w-26 h-26 pl-4 mr-3">
+                    <input type="text" placeholder="Search" id="search"
+                        class="w-full h-[48px] py-3 text-white bg-secondary text-base placeholder:text-base placeholder:text-paragraph rounded-full focus:outline-none focus:ring-0 focus:font-semibold" />
+                </div>
+
+                <!-- Rest of the sidebar content -->
+                <div class="flex flex-col p-3.5 rounded-[16px] bg-secondary">
+                    <div class="flex flex-col gap-6">
+                        <h2 class="font-bold text-lg">You might like</h2>
+                        <div class="flex justify-between items-center">
+                            <div class="flex">
+                                <img src="assets/girl1.png" alt="" class="w-[46px] h-[46px] rounded-full">
+                                <div class="pl-2">
+                                    <p class="text-base font-bold">Shayna <img src="assets/verify.png" alt="" srcset=""
+                                            class="inline w-5   rounded-full"></p>
+                                    <p class="text-username text-sm">@shayna</p>
+                                </div>
+                            </div>
+
+                            <a href="#">
+                                <span href="#" class="btn-white-small cursor-pointer">Follow</span>
+                            </a>
+                        </div>
+
+                        <div class="flex justify-between items-center">
+                            <div class="flex">
+                                <img src="assets/man1.png" alt="" class="w-[46px] h-[46px] rounded-full">
+                                <div class="pl-2">
+                                    <div>
+                                        <p class="text-base font-bold">Masayoshi <img src="assets/verify.png" alt=""
+                                                srcset="" class="inline w-5 rounded-full"></p>
+
+                                    </div>
+                                    <p class="text-username text-sm">@masayoshi</p>
+                                </div>
+                            </div>
+
+                            <a href="#">
+                                <span href="#" class="btn-white-small cursor-pointer">Follow</span>
+                            </a>
+                        </div>
+
+                        <div class="flex justify-between items-center">
+                            <div class="flex">
+                                <img src="assets/girl2.png" alt="" class="w-[46px] h-[46px] rounded-full">
+                                <div class="pl-2">
+                                    <p class="text-base font-bold">Ramina <img src="assets/verify.png" alt="" srcset=""
+                                            class="inline w-5 rounded-full"></p>
+                                    <p class="text-username text-sm">@ramina</p>
+                                </div>
+                            </div>
+
+                            <a href="#">
+                                <span href="#" class="btn-white-small cursor-pointer">Follow</span>
+                            </a>
+                        </div>
+
+                        <a href="#" class="text-base font-medium text-link pl-2">Show more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Edit Profile -->
+    <div id="editProfileModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-primary border-2 border-line rounded-lg p-4 md:p-6 w-[90%] md:w-[500px] max-w-[90%]">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg md:text-xl font-bold">Edit Profile</h3>
+                <button id="closeModalBtn" class="text-white hover:text-gray-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <form id="editProfileForm" class="space-y-4">
+                <div class="flex flex-col items-center mb-4">
+                    <img id="profilePhotoPreview" src="assets/user.png" alt="Profile Photo" class="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover mb-2">
+                    <input type="file" id="profilePhoto" class="hidden" accept="image/*">
+                    <button type="button" id="choosePhotoBtn" class="bg-secondary hover:bg-blue-600 text-white py-1 px-3 rounded-full text-sm">Pilih Foto</button>
+                </div>
+                <div>
+                    <label for="profileName" class="block text-sm font-medium text-gray-300 mb-1">Nama</label>
+                    <input type="text" id="profileName" class="w-full bg-secondary border border-line rounded-lg p-2 text-white">
+                </div>
+                <div>
+                    <label for="profileBio" class="block text-sm font-medium text-gray-300 mb-1">Bio</label>
+                    <textarea id="profileBio" rows="3" class="w-full bg-secondary border border-line rounded-lg p-2 text-white"></textarea>
+                </div>
+                <div class="flex justify-end pt-2">
+                    <button type="submit" class="btn-blue py-2 px-4 md:py-3 md:px-6">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="assets/js/Models/Twitt.js"></script>
+    <script src="assets/js/Models/User.js"></script>
+    <script src="assets/js/userProfile.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#010003',
+                        secondary: '#121316',
+                        paragraph: '#626262',
+                        btn_blue: '#1880E8',
+                        username: '#5E6368',
+                        link: '#1880E8',
+                        line: '#1E1E1E',
+                        like: '#F91880'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</body>
+</html>
